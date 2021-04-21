@@ -1,0 +1,160 @@
+stackbitVersion: ~0.3.0
+ssgName: eleventy
+publishDir: _site
+models:
+  post:
+    type: page
+    label: Post
+    folder: posts
+    match:
+      - fourthpost.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: description
+        label: Description
+      - type: date
+        name: date
+        label: Date
+      - type: string
+        name: tags
+        label: Tags
+      - type: string
+        name: layout
+        label: Layout
+  about:
+    type: page
+    label: About
+    folder: about
+    match: '*'
+    fields:
+      - type: string
+        name: layout
+        label: Layout
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: templateClass
+        label: Template Class
+      - type: object
+        name: eleventyNavigation
+        label: Eleventy Navigation
+        fields:
+          - type: string
+            name: key
+            label: Key
+          - type: number
+            name: order
+            label: Order
+            subtype: int
+  post_1:
+    type: page
+    label: Post 1
+    folder: posts
+    match: '*'
+    exclude:
+      - fourthpost.md
+    fields:
+      - name: title
+        type: string
+      - name: description
+        type: string
+      - name: date
+        type: date
+      - name: tags
+        type: list
+        items:
+          type: string
+      - name: layout
+        type: string
+      - name: image
+        type: image
+        label: Image
+  eleventy-plugin-local-image:
+    type: page
+    label: Eleventy Plugin Local Image
+    folder: third_party/eleventy-plugin-local-images
+    match: '*'
+    fields: []
+  metadata:
+    type: data
+    label: Metadata
+    file: _data/metadata.json
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: url
+        label: Url
+      - type: string
+        name: domain
+        label: Domain
+      - type: string
+        name: description
+        label: Description
+      - type: string
+        name: genre
+        label: Genre
+      - type: string
+        name: googleAnalyticsId
+        label: Google Analytics Id
+      - type: boolean
+        name: sendWebVitals
+        label: Send Web Vitals
+      - type: object
+        name: feed
+        label: Feed
+        fields:
+          - type: string
+            name: subtitle
+            label: Subtitle
+          - type: string
+            name: filename
+            label: Filename
+          - type: string
+            name: path
+            label: Path
+          - type: string
+            name: id
+            label: Id
+      - type: object
+        name: jsonfeed
+        label: Jsonfeed
+        fields:
+          - type: string
+            name: path
+            label: Path
+          - type: string
+            name: url
+            label: Url
+      - type: object
+        name: author
+        label: Author
+        fields:
+          - type: string
+            name: name
+            label: Name
+          - type: string
+            name: twitterHandle
+            label: Twitter Handle
+      - type: object
+        name: publisher
+        label: Publisher
+        fields:
+          - type: string
+            name: name
+            label: Name
+  posts:
+    type: data
+    label: Posts
+    file: posts/posts.json
+    fields:
+      - type: list
+        name: tags
+        label: Tags
+        items:
+          type: string
